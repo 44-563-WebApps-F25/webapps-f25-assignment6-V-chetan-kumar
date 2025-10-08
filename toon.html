@@ -21,9 +21,14 @@
 
 <p id="result">Darn count: 0, Yahoo count: 0 </p>
 
+<div>
+    <img id="plantImage" src="viburnum.jpg" width="150" height="150" onclick="updatePic()" alt = "Plant Img">
+</div>
+
 <script> 
 let darn = 0;
 let yahoo = 0;
+let usePic = 1;
 
 function checkToon (){
 
@@ -41,6 +46,22 @@ function checkToon (){
     const out = document.getElementById("result");
     out.innerHTML = `Darn count: ${darn}, Yahoo count: ${yahoo}`;
 
+}
+function updatePic(){
+    switch(usePic){
+        case 1:
+            document.getElementById("plantImage").src = "viburnum.jpg";
+            usePic = 2;
+            break;
+        case 2:
+            document.getElementById("plantImage").src = "lupine.jpg";
+            usePic = 3;
+            break;
+        case 3:
+            document.getElementById("plantImage").src = "Agave.jpg";
+            usePic = 1;
+            break;
+    }
 }
 </script>
 
