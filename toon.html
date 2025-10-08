@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Js Sandbox</title>
+ </head>
+<body>
+<h1>Cartoon game by Chetan</h1>
+<h2>Cartoon guessing game</h2>
+
+<form>
+    <label for="secretToon">That's all folks </label>
+    <input type ="password" id="secretToon" name="secretToon" value="Porky Pig"> 
+    <br> <br>
+
+    <label for="guessToon">Guess the toon </label>
+    <input type ="text" id="guessToon" name="guessToon" autofocus> <br><br>
+
+    <input type="button" onclick="checkToon()" value="Check the guess">
+</form>
+
+
+<p id="result">Darn count: 0, Yahoo count: 0 </p>
+
+<script> 
+let darn = 0;
+let yahoo = 0;
+
+function checkToon (){
+
+    console.log("Checking the guess")
+    const secretToon = document.getElementById("secretToon").value;
+    const guessToon = document.getElementById("guessToon").value;
+
+    if (secretToon == guessToon){
+        yahoo++;
+        alert("You got it");
+    } else {
+        darn++;
+        alert("Missed me");
+    }
+    const out = document.getElementById("result");
+    out.innerHTML = `Darn count: ${darn}, Yahoo count: ${yahoo}`;
+
+}
+</script>
+
+</body>
+</html> 
