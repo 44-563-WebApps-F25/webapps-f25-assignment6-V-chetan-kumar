@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meal Planner</title>
+</head>
+ 
+<body>
+
+<h1>Chetan Kumar plans a meal</h1>
+
+<form>
+    <input type="checkbox" id="checkbox_salad" name="checkbox_salad" value="True">
+    <label for="checkbox_salad">Serve salad</label><br>
+
+    <input type="checkbox" id="checkbox_stew" name="checkbox_stew" value="True">
+    <label for="checkbox_stew">Make stew</label><br>
+
+    <input type="checkbox" id="checkbox_chocolate" name="checkbox_chocolate" value="False">
+    <label for="checkbox_chocolate">Chocolate for desert</label><br><br>
+
+    <input type="button" onclick="choices()" value="Meal Choices">
+</form>
+
+<h2>Add Drink and Starter</h2>
+
+<form>
+    <label for="drink">Enter drink </label>
+    <input type="text" id="drink" name="drink" value="Wine"> <br><br>
+
+    <label for="starter">Enter starter </label>
+    <input type="text" id="starter" name="starter"> <br><br>
+
+    <input type="button" onclick="updateMeal()" value="Update the meal">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+let my_meal = {};
+
+function choices() {
+    console.log("Getting meal choices")
+    
+    my_meal = {};
+    my_meal.salad = document.getElementById("checkbox_salad").checked;
+    my_meal.stew = document.getElementById("checkbox_stew").checked;
+    my_meal.chocolate = document.getElementById("checkbox_chocolate").checked;
+    
+    const out = document.getElementById("result");
+    out.innerHTML = JSON.stringify(my_meal);
+}
+
+function updateMeal() {
+    console.log("Updating meal")
+    
+    const drinkValue = document.getElementById("drink").value;
+    
+    const starterValue = document.getElementById("starter").value;
+    
+    my_meal["drink"] = drinkValue;
+    my_meal["starter"] = starterValue;
+    
+    const out = document.getElementById("result");
+    out.innerHTML = JSON.stringify(my_meal);
+}
+</script>
+
+</body>
+</html>
